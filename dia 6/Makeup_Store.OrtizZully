@@ -1,0 +1,180 @@
+// #########################
+// CONSTRUCCIÓN ALGORITMO CRUD (CREATE,READ,UPDATE Y DELETE)
+// #########################
+Algoritmo Makeup_Store
+	// Informacion de cada cosmetido 
+	Dimensionar nombreCosmeticos(100)// Mostrar los nombres de cosmeticos disponibles 
+	Dimensionar precioCosmeticos(100)// Mostrar los precios de cada cosmeticos.
+	Dimensionar cantidadInventario(100) // Mostrar la cantidad de inventario de cada cosmeticos.
+	nombreCosmeticos[0] <- 'Base' 
+	nombreCosmeticos[1] <- 'Corrector' 
+	nombreCosmeticos[2] <- 'Pestañina'
+	nombreCosmeticos[3] <- 'Rubor'
+	nombreCosmeticos[4] <- 'Labial'
+	precioCosmeticos[0] <- 25000
+	precioCosmeticos[1] <- 18000
+	precioCosmeticos[2] <- 28000
+	precioCosmeticos[3] <- 5000
+	precioCosmeticos[4] <- 12000
+	cantidadInventario[0] <- 30
+	cantidadInventario[1] <- 30
+	cantidadInventario[2] <- 25
+	cantidadInventario[3] <- 20
+	cantidadInventario[4] <- 35
+	Dimensionar nombreCosmetico(100)
+	Dimensionar precioCosmetico(100)
+	Dimensionar cantidadCosmetico(100) // Nombre del cosmetico
+	nombreCosmetico[0] <- 'Base' // Precio total de acuerdo a la unidades de cosmeticos compradas
+	nombreCosmetico[1] <- 'Corrector' // Cantidad de cosmetico comprado
+	nombreCosmetico[2] <- 'Pestañina'
+	nombreCosmetico[3] <- 'Rubor'
+	nombreCosmetico[4] <- 'Labial'
+	precioCosmetico[0] <- 0
+	cantidadCosmetico[0] <- 0
+	Definir cosmetic Como Lógico
+	cosmetic <- Verdadero
+	// Bucle que permite al comprador interactuar con el menu de compra.
+	Mientras cosmetic=Verdadero Hacer
+		Escribir '_______________________________________________________'
+		Escribir '--------------Welcome to Makeup_Store------------------'
+		Escribir '_______________________________________________________'
+		Escribir 'Escoge una de las opciones para tu carrito de compras:'
+		// Opciones importantes para llevar con exito la compra 
+		Escribir '         1. Añadir cosmeticos al carrito '
+		Escribir '         2. Quitar cosmeticos del carrito'
+		Escribir '         3. Listar cosmeticos disponibles'
+		Escribir '         4. Listar cosmeticos en Carrito (Precio)'
+		Escribir '         0. Finalizar.'
+		Leer p
+		Según p Hacer
+			1:
+				// Añadir cosméticos al carrito
+				Escribir 'Ingrese el número correspondiente al cosmético que desea añadir al carrito:'
+				Escribir '1. Base'
+				Escribir '2. Corrector'
+				Escribir '3. Pestañina'
+				Escribir '4. Rubor'
+				Escribir '5. Labial'
+				Leer NumCos
+				Según NumCos Hacer
+					1:
+						Si NumCos>=1 Y NumCos<=5 Entonces
+							Escribir 'Ingrese la cantidad de base que desees comprar:'
+							Leer cantidadCompra
+							Si cantidadCompra>0 Y cantidadCompra<=cantidadInventario[NumCos-1] Entonces
+								cantidadCosmetico[NumCos-1]<-cantidadCosmetico[NumCos-1]+cantidadCompra
+								precioCosmetico[NumCos-1]<-precioCosmetico[NumCos-1]+(precioCosmeticos[NumCos-1]*cantidadCompra)
+								cantidadInventario[NumCos-1]<-cantidadInventario[NumCos-1]-cantidadCompra
+								Escribir 'Cosmético añadido al carrito correctamente.'
+							SiNo
+								Escribir 'La cantidad ingresada es inválida o supera el inventario disponible.'
+							FinSi
+						SiNo
+							Escribir 'Opción inválida.'
+						FinSi
+					2:
+						Si NumCos>=2 Y NumCos<=5 Entonces
+							Escribir 'Ingrese la cantidad de corrector que desees comprar:'
+							Leer cantidadCompra
+							Si cantidadCompra>0 Y cantidadCompra<=cantidadInventario[NumCos-2] Entonces
+								cantidadCosmetico[NumCos-2]<-cantidadCosmetico[NumCos-2]+cantidadCompra
+								precioCosmetico[NumCos-2]<-precioCosmetico[NumCos-2]+(precioCosmeticos[NumCos-2]*cantidadCompra)
+								cantidadInventario[NumCos-2]<-cantidadInventario[NumCos-2]-cantidadCompra
+								Escribir 'Cosmético añadido al carrito correctamente.'
+							SiNo
+								Escribir 'La cantidad ingresada es inválida o supera el inventario disponible.'
+							FinSi
+						SiNo
+							Escribir 'Opción inválida.'
+						FinSi
+					3:
+						Si NumCos>=3 Y NumCos<=5 Entonces
+							Escribir 'Ingrese la cantidad de pestañina que desees comprar:'
+							Leer cantidadCompra
+							Si cantidadCompra>0 Y cantidadCompra<=cantidadInventario[NumCos-3] Entonces
+								cantidadCosmetico[NumCos-3]<-cantidadCosmetico[NumCos-3]+cantidadCompra
+								precioCosmetico[NumCos-3]<-precioCosmetico[NumCos-3]+(precioCosmeticos[NumCos-3]*cantidadCompra)
+								cantidadInventario[NumCos-3]<-cantidadInventario[NumCos-3]-cantidadCompra
+								Escribir 'Cosmético añadido al carrito correctamente.'
+							SiNo
+								Escribir 'La cantidad ingresada es inválida o supera el inventario disponible.'
+							FinSi
+						SiNo
+							Escribir 'Opción inválida.'
+						FinSi
+					4:
+						Si NumCos>=4 Y NumCos<=5 Entonces
+							Escribir 'Ingrese la cantidad de rubor que desees comprar:'
+							Leer cantidadCompra
+							Si cantidadCompra>0 Y cantidadCompra<=cantidadInventario[NumCos-4] Entonces
+								cantidadCosmetico[NumCos-4]<-cantidadCosmetico[NumCos-4]+cantidadCompra
+								precioCosmetico[NumCos-4]<-precioCosmetico[NumCos-4]+(precioCosmeticos[NumCos-4]*cantidadCompra)
+								cantidadInventario[NumCos-4]<-cantidadInventario[NumCos-4]-cantidadCompra
+								Escribir 'Cosmético añadido al carrito correctamente.'
+							SiNo
+								Escribir 'La cantidad ingresada es inválida o supera el inventario disponible.'
+							FinSi
+						SiNo
+							Escribir 'Opción inválida.'
+						FinSi
+					5:
+						Si NumCos>=5 Y NumCos<=5 Entonces
+							Escribir 'Ingrese la cantidad de labial que desees comprar:'
+							Leer cantidadCompra
+							Si cantidadCompra>0 Y cantidadCompra<=cantidadInventario[NumCos-1] Entonces
+								cantidadCosmetico[NumCos-5]<-cantidadCosmetico[NumCos-5]+cantidadCompra
+								precioCosmetico[NumCos-5]<-precioCosmetico[NumCos-5]+(precioCosmeticos[NumCos-5]*cantidadCompra)
+								cantidadInventario[NumCos-5]<-cantidadInventario[NumCos-5]-cantidadCompra
+								Escribir 'Cosmético añadido al carrito correctamente.'
+							SiNo
+								Escribir 'La cantidad ingresada es inválida o supera el inventario disponible.'
+							FinSi
+						SiNo
+							Escribir 'Opción inválida.'
+						FinSi
+				FinSegún
+			2:
+			3:
+				Escribir '___________________________________________________'
+				Escribir '-------------Cosmeticos Disponibles----------------'
+				Escribir '___________________________________________________' // Mostrar productos que esta disponible
+				Para i<-0 Hasta 4 Hacer
+					Escribir '============================================'
+					Escribir 'Producto #', i+1, ':'
+					Escribir 'Nombre:', nombreCosmeticos[i]
+					Escribir 'Precio:', precioCosmeticos[i]
+					Escribir 'Cantidad Disponible:', cantidadInventario[i]
+					Escribir '============================================'
+				FinPara
+				Escribir 'Quieres continuar con la compra? (si/no) : '
+				Leer compra
+				Si compra=='no' Entonces
+					Escribir 'Muchas gracias por comprar en Makeup_Store ;) '
+					booleano <- Falso
+				FinSi
+			4:
+				Si productosCliente==Falso Entonces
+					Escribir 'No tienes ningún producto en tu carrito'
+					Escribir 'Quieres continuar en el programa? (si/no) : '
+					Leer programita
+					Si programita=='no' Entonces
+						Escribir 'Muchas gracias por utilizar el programa ;) '
+						booleano <- Falso
+					FinSi
+				SiNo
+					totalCompra <- 0
+					Para i<-0 Hasta cantidadProductos Hacer
+						Escribir '============================================'
+						Escribir 'Producto #', i+1, ':'
+						Escribir 'Nombre:', nombreCosmetico[i]
+						Escribir 'Precio por Unidad:', precioCosmeticos[i]
+						Escribir 'Cantidad Comprada:', cantidadCosmetico[i]
+						Escribir 'Precio Total por Unidades Compradas:', precioCosmeticos[i]
+						Escribir '============================================'
+						totalCompra <- totalCompra+precioCosmeticos[i]
+					FinPara
+					Escribir 'Total a Pagar:', totalCompra
+				FinSi
+		FinSegún
+	FinMientras
+FinAlgoritmo

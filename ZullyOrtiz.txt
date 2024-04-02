@@ -1,0 +1,7 @@
+Mi nombre es Zully 
+git config --global user.name zu0910
+
+git config --global user.name nombreUsuario git config --global user.email zullyortiz.09@gmail.com
+
+
+
